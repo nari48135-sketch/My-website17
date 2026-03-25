@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Game</title>
+</head>
+<body style="text-align:center;">
+
+<h1>Click the Button Game </h1>
+<p id="score">Score: 0</p>
+
+<button onclick="addScore()" style="padding:20px;font-size:20px;">
+  Click Me!
+</button>
+
+<script>
+let score = 0;
+
+function addScore() {
+  score++;
+  document.getElementById("score").innerText = "Score: " + score;
+}
+</script>
+
+</body>
+</html>
