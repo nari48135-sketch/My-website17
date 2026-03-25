@@ -5,20 +5,35 @@
 </head>
 <body style="text-align:center;">
 
-<h1>Click the Button Game </h1>
+<h1>Click Game 🎮</h1>
 <p id="score">Score: 0</p>
+<p id="time">Time: 10</p>
 
-<button onclick="addScore()" style="padding:20px;font-size:20px;">
+<button onclick="addScore()" id="btn" style="padding:20px;font-size:20px;">
   Click Me!
 </button>
 
 <script>
 let score = 0;
+let timeLeft = 10;
 
 function addScore() {
-  score++;
-  document.getElementById("score").innerText = "Score: " + score;
+  if(timeLeft > 0){
+    score++;
+    document.getElementById("score").innerText = "Score: " + score;
+  }
 }
+
+let timer = setInterval(function() {
+  timeLeft--;
+  document.getElementById("time").innerText = "Time: " + timeLeft;
+
+  if(timeLeft <= 0){
+    clearInterval(timer);
+    document.getElementById("btn").disabled = true;
+    alert("Game Over! Your score is " + score);
+  }
+}, 1000);
 </script>
 
 </body>
